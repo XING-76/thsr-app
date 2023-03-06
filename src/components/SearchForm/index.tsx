@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { storesType } from '../../reducers';
 import './index.scss';
 import { FETCH_GET_OPTIONS, FETCH_SEARCH, SET_SEARCH_RESULT } from './model';
-import { searchFormField as initSearchFormField } from './model/data';
+import { dateRestrict, searchFormField as initSearchFormField } from './model/data';
 import { Options } from './model/types';
 
 function Index() {
@@ -24,6 +24,9 @@ function Index() {
     };
 
     const handleOnSubmit = async () => {
+        if (!searchFormData.startStationId) return alert('起程站為必填');
+        if (!searchFormData.endStationId) return alert('到達站為必填');
+        if (searchFormData.startStationId === searchFormData.endStationId) return alert('起程站不能與到達站相同');
         if (!searchFormData.trainDate) return alert('請選擇日期');
         dispatch(FETCH_SEARCH(searchFormData));
     };
@@ -42,7 +45,14 @@ function Index() {
             <div className="searchForm__inputField">
                 <div>
                     <span>起程站</span>
-                    <select name="startStationId" id="startStationId" onChange={handleOnChange}>
+                    <select
+                        value={searchFormData.startStationId}
+                        name="startStationId"
+                        id="startStationId"
+                        onChange={handleOnChange}>
+                        <option hidden value="">
+                            請選擇
+                        </option>
                         {options.map((item: Options) => (
                             <option key={item.id} id={item.id} value={item.id}>
                                 {item.name}
@@ -53,7 +63,14 @@ function Index() {
 
                 <div>
                     <span>到達站</span>
-                    <select name="endStationId" id="endStationId" onChange={handleOnChange}>
+                    <select
+                        value={searchFormData.endStationId}
+                        name="endStationId"
+                        id="endStationId"
+                        onChange={handleOnChange}>
+                        <option hidden value="">
+                            請選擇
+                        </option>
                         {options.map((item: Options) => (
                             <option key={item.id} id={item.id} value={item.id}>
                                 {item.name}
@@ -70,6 +87,10 @@ function Index() {
                         className="searchForm__inputField_dateInput"
                         name="trainDate"
                         id="trainDate"
+                        value={searchFormData.trainDate}
+                        min={dateRestrict.min}
+                        max={dateRestrict.max}
+                        required
                     />
                 </div>
             </div>

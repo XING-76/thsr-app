@@ -1,3 +1,4 @@
+import { getMaxDay } from '@utils/dateUtil';
 import { ApiStatus, SearchFormField, State } from './types';
 
 export const searchFormField: SearchFormField = {
@@ -20,4 +21,9 @@ export const initialState: State = {
     apiStatus: initStatus,
     loadingState: false,
     options: []
+};
+
+export const dateRestrict = {
+    min: new Date().toISOString().slice(0, 10),
+    max: getMaxDay()
 };

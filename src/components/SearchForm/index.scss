@@ -15,13 +15,15 @@
     }
 
     .searchForm__inputField_dateInput {
+        width: 100%;
+        height: 60px;
         padding: 5px;
         appearance: none;
-        border: 1px solid #eee;
+        border: 1px solid #aaa;
+        border-radius: 5px;
         outline: none;
         &:hover,
         &:focus {
-            // border: none;
             outline: none;
         }
     }
