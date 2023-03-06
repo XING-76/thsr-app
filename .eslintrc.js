@@ -34,7 +34,11 @@ module.exports = {
                 allow: ['warn', 'error', 'info', 'log']
             }
         ],
+        'no-alert': 'off',
+        'consistent-return': 'off',
         'import/no-extraneous-dependencies': 'off',
-        'import/no-named-as-default': 'off'
+        'import/no-named-as-default': 'off',
+        'import/prefer-default-export': 'off',
+        '@typescript-eslint/no-use-before-define': 'off'
     }
 };
