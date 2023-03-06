@@ -16,7 +16,7 @@ export const httpRequest = async (
     options = {}
 ) => {
     const controller = new AbortController();
-    const signal = controller.signal;
+    const { signal } = controller;
 
     const timeoutId = setTimeout(() => {
         controller.abort();
@@ -27,7 +27,7 @@ export const httpRequest = async (
             url,
             method,
             signal,
-            body: data ? data : null,
+            body: data || null,
             headers: {
                 ...headers,
                 ...authHeader(),
