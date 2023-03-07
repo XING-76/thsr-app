@@ -1,20 +1,10 @@
-import { API_AUTH_URL, API_KEY_ID, API_KEY_SECRET } from '@configs/serviceConfig';
+import { API_AUTH_URL, AUTH_HEADER, HTTP_PARAMETER } from '@configs/serviceConfig';
 import axios from 'axios';
 import ObjectUtils from './objectUtils';
 
 export const getAuthorizationHeader = async () => {
-    const parameter = {
-        grant_type: 'client_credentials',
-        client_id: API_KEY_ID,
-        client_secret: API_KEY_SECRET
-    };
-
     try {
-        const res = await axios.post(API_AUTH_URL, parameter, {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        });
+        const res = await axios.post(API_AUTH_URL, HTTP_PARAMETER, AUTH_HEADER);
         const response = res.data;
 
         localStorage.setItem('token', `Bearer ${response.access_token}`);
@@ -23,15 +13,37 @@ export const getAuthorizationHeader = async () => {
     }
 };
 
-export const checkAuth = () => {
+export const handleCheckToken = async () => {
     const tokenValue = localStorage.getItem('token');
 
-    return ObjectUtils.isExist(tokenValue);
+    if (ObjectUtils.isExist(tokenValue)) {
+        try {
+            await axios.post(API_AUTH_URL, HTTP_PARAMETER, AUTH_HEADER);
+            return;
+        } catch (err: any) {
+            if (err.response && err.response.status === 401) {
+                console.error('Token 已過期，重新取得中...');
+            } else {
+                console.error('請求失敗', err);
+            }
+        }
+    }
+
+    try {
+        removeToken();
+        const res = await axios.post(API_AUTH_URL, HTTP_PARAMETER, AUTH_HEADER);
+        const response = res.data;
+        const newToken = `Bearer ${response.access_token}`;
+
+        localStorage.setItem('token', newToken);
+    } catch (err) {
+        console.error('取得 Access Token 失敗', err);
+    }
 };
 
 export const authHeader = () => {
-    let token = localStorage.getItem('token');
-    if (!ObjectUtils.isExist(token)) return new Object();
+    const token = localStorage.getItem('token');
+
     return { Authorization: token };
 };
 

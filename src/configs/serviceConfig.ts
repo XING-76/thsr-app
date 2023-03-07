@@ -23,6 +23,18 @@ export const HTTP_STATUS_CODE = {
     INTERNAL_SERVER_ERROR: 500
 };
 
+export const HTTP_PARAMETER = {
+    grant_type: 'client_credentials',
+    client_id: API_KEY_ID,
+    client_secret: API_KEY_SECRET
+};
+
+export const AUTH_HEADER = {
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
+};
+
 export const SERVICE_URL_CONFIG = {
     DailyTimetable: 'DailyTimetable',
     OD: 'OD',
