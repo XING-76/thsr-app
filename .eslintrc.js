@@ -14,7 +14,7 @@ module.exports = {
             }
         }
     },
-    extends: ['airbnb', 'airbnb-typescript', 'plugin:prettier/recommended'],
+    extends: ['airbnb', 'airbnb-typescript', 'plugin:react/jsx-runtime', 'plugin:prettier/recommended'],
     plugins: ['@typescript-eslint', 'import', 'only-warn', 'prettier'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
