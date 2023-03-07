@@ -1,19 +1,7 @@
-import { checkAuth, getAuthorizationHeader } from '@utils/auth';
-import React from 'react';
-import SearchForm from './components/SearchForm';
+import MainPage from '@container/MainPage';
 
 function App() {
-    React.useEffect(() => {
-        if (!checkAuth()) {
-            getAuthorizationHeader();
-        }
-    }, []);
-
-    return (
-        <div className="app">
-            <SearchForm />
-        </div>
-    );
+    return <MainPage />;
 }
 
 export default App;

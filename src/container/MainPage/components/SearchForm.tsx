@@ -1,15 +1,16 @@
+import { storesType } from '@container/reducers';
+import { handleCheckToken } from '@utils/auth';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { storesType } from '../../reducers';
-import './index.scss';
-import { FETCH_GET_OPTIONS, FETCH_SEARCH, SET_SEARCH_RESULT } from './model';
-import { dateRestrict, searchFormField as initSearchFormField } from './model/data';
-import { Options } from './model/types';
+import { FETCH_GET_OPTIONS, FETCH_SEARCH, SET_SEARCH_RESULT } from '../model';
+import { dateRestrict, searchFormField as initSearchFormField } from '../model/data';
+import { Options } from '../model/types';
+import './css/searchForm.scss';
 
-function Index() {
+function SearchForm() {
     const dispatch = useDispatch();
 
-    const { options } = useSelector((state: storesType) => ({ ...state.searchForm }));
+    const { options } = useSelector((state: storesType) => ({ ...state.mainPage }));
 
     const [searchFormData, setSearchFormData] = React.useState(initSearchFormField);
 
@@ -37,6 +38,7 @@ function Index() {
     };
 
     React.useEffect(() => {
+        handleCheckToken();
         dispatch(FETCH_GET_OPTIONS());
     }, []);
 
@@ -96,15 +98,15 @@ function Index() {
             </div>
 
             <div className="buttonGroup">
-                <button type="button" className="submitButton" onClick={handleOnSubmit}>
-                    查詢
-                </button>
                 <button type="button" className="clearButton" onClick={handleClearSearchForm}>
                     清空條件
+                </button>
+                <button type="button" className="submitButton" onClick={handleOnSubmit}>
+                    查詢
                 </button>
             </div>
         </>
     );
 }
 
-export default Index;
+export default SearchForm;

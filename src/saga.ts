@@ -1,4 +1,4 @@
-import { MainSaga as SearchFormSaga } from '@components/SearchForm/model/saga';
+import { MainSaga as SearchFormSaga } from '@/container/MainPage/model/saga';
 import { all } from 'redux-saga/effects';
 
 function* rootSaga() {

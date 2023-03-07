@@ -22,7 +22,7 @@
             "@utils/*": ["src/utils/*"],
             "@configs/*": ["src/configs/*"],
             "@service/*": ["src/service/*"],
-            "@components/*": ["src/components/*"]
+            "@container/*": ["src/container/*"]
         }
     },
     "include": ["src"],

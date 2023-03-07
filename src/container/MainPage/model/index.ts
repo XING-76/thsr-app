@@ -3,7 +3,7 @@ import { ReduxResponseColumns, sendPayloadObject } from '@utils/reduxUtils';
 import { initialState } from './data';
 
 export const slice = createSlice({
-    name: 'df0001',
+    name: 'mainPage',
     initialState,
     reducers: {
         FETCH_SEARCH: sendPayloadObject(ReduxResponseColumns.PAYLOAD),
@@ -25,4 +25,5 @@ export const {
     SET_API_STATUS,
     SET_LOADING_STATE
 } = slice.actions;
+
 export default slice.reducer;

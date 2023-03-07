@@ -1,8 +1,8 @@
-import searchForm from '@components/SearchForm/model';
+import mainPage from '@/container/MainPage/model';
 import { combineReducers } from 'redux';
 
 const appReducer = combineReducers({
-    searchForm
+    mainPage
 });
 
 interface action {
