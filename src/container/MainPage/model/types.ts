@@ -5,13 +5,10 @@ export interface SearchFormField {
 }
 
 export interface SearchResultData {
-    id: string;
-    firstName: string;
-    lastName: string;
-    age: string;
-    gender: string;
-    birthDate: string;
-    function: Array<string>;
+    trainNumber: string;
+    departureTime: string;
+    arrivalTime: string;
+    travelTime: string;
 }
 
 export interface ApiStatus {

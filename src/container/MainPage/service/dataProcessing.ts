@@ -1,3 +1,4 @@
+import { getTravelTime } from '@utils/dateUtil';
 import { SearchFormField } from '../model/types';
 
 /**
@@ -15,8 +16,9 @@ export const convertResponseOfSearchAPI = (response: any) => {
 
         const result = {
             trainNumber: TrainNo,
-            startTime: DepartureTime,
-            endTime: ArrivalTime
+            departureTime: DepartureTime,
+            arrivalTime: ArrivalTime,
+            travelTime: getTravelTime(DepartureTime, ArrivalTime)
         };
 
         return result;
