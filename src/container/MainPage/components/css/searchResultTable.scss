@@ -1,0 +1,27 @@
+.searchResultTable__container {
+    margin-top: 20px;
+    max-height: 600px;
+
+    .searchResultTable__tableHead {
+        display: flex;
+        border-bottom: 2px solid #ddd;
+
+        .searchResultTable__tableHead_title {
+            flex-grow: 1;
+            text-align: center;
+            padding: 10px;
+        }
+    }
+
+    .searchResultTable__tableRow {
+        display: flex;
+        border-top: 1px solid #ddd;
+
+        .searchResultTable__tableRow_item {
+            flex-grow: 1;
+            text-align: center;
+            align-self: center;
+            padding: 10px;
+        }
+    }
+}
