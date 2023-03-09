@@ -22,7 +22,8 @@
             "@utils/*": ["src/utils/*"],
             "@configs/*": ["src/configs/*"],
             "@service/*": ["src/service/*"],
-            "@container/*": ["src/container/*"]
+            "@container/*": ["src/container/*"],
+            "@modules/*": ["src/modules/*"]
         }
     },
     "include": ["src"],

@@ -10,7 +10,8 @@ export default defineConfig({
             '@utils': path.resolve(__dirname, 'src/utils'),
             '@configs': path.resolve(__dirname, 'src/configs'),
             '@service': path.resolve(__dirname, 'src/service'),
-            '@container': path.resolve(__dirname, 'src/container')
+            '@container': path.resolve(__dirname, 'src/container'),
+            '@modules': path.resolve(__dirname, 'src/modules')
         }
     }
 });

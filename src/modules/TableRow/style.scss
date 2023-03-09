@@ -1,0 +1,9 @@
+.table__row {
+    width: 100%;
+    cursor: pointer;
+
+    &.table__row_sticky {
+        position: sticky;
+        top: 0;
+    }
+}
