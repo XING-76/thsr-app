@@ -1,4 +1,5 @@
 import ErrorBoundary from '@modules/ErrorBoundary';
+import ParentModal from './components/ParentModal';
 import SearchForm from './components/SearchForm';
 import SearchResultTable from './components/SearchResultTable';
 
@@ -11,6 +12,10 @@ function Index() {
 
             <ErrorBoundary>
                 <SearchResultTable />
+            </ErrorBoundary>
+
+            <ErrorBoundary>
+                <ParentModal />
             </ErrorBoundary>
         </>
     );

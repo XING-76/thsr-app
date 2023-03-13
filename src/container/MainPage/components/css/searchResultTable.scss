@@ -22,6 +22,19 @@
             text-align: center;
             align-self: center;
             padding: 10px;
+
+            button {
+                border: none;
+                outline: none;
+                cursor: pointer;
+                border-radius: 5px;
+                padding: 5px;
+                background-color: #eeeeee;
+                transition: all ease 0.5s;
+                &:active {
+                    transform: scale(0.97);
+                }
+            }
         }
     }
 }

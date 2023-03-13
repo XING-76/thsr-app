@@ -3,15 +3,20 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import ApiRequest from '@service/apiRequest';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import {
+    convertResponseOfGetDetailAPI,
     convertResponseOfGetOptionsAPI,
     convertResponseOfSearchAPI,
+    getParametersOfGetDetailAPI,
     getParametersOfSearchAPI
 } from '../service/dataProcessing';
 import {
+    FETCH_GET_DETAIL,
     FETCH_GET_OPTIONS,
     FETCH_SEARCH,
     SET_API_STATUS,
     SET_LOADING_STATE,
+    SET_MODAL_TYPE,
+    SET_ON_PARENT_MODAL_DATA,
     SET_OPTIONS,
     SET_SEARCH_RESULT
 } from './index';
@@ -19,7 +24,8 @@ import {
 function* fetchSearchUsers(action: PayloadAction<any>) {
     try {
         yield put(SET_LOADING_STATE(true));
-        const convertedRequest = getParametersOfSearchAPI(action.payload);
+        const request = action.payload;
+        const convertedRequest = getParametersOfSearchAPI(request);
         const response: Promise<any> = yield call(ApiRequest.search, convertedRequest);
         const convertedResponse = convertResponseOfSearchAPI(response);
 
@@ -28,13 +34,6 @@ function* fetchSearchUsers(action: PayloadAction<any>) {
     } catch (error) {
         console.error(error);
         yield put(SET_API_STATUS({ type: 'search', code: error }));
-        // yield put(
-        //     SET_IS_STATUS_MODAL_OPEN({
-        //         statusModalType: StatusModalTypes.FAIL,
-        //         isOpen: true,
-        //         message: error.errorMessage || '查詢失敗'
-        //     })
-        // );
     } finally {
         yield put(SET_LOADING_STATE(false));
     }
@@ -56,9 +55,30 @@ function* fetchGetOptions() {
     }
 }
 
+function* fetchGetDetail(action: PayloadAction<any>) {
+    try {
+        yield put(SET_LOADING_STATE(true));
+        const request = action.payload;
+        const convertedRequest = getParametersOfGetDetailAPI(request);
+        const response: Promise<any> = yield call(ApiRequest.getTrainNumberDetail, convertedRequest);
+        const convertedResponse = convertResponseOfGetDetailAPI(response);
+
+        yield put(SET_ON_PARENT_MODAL_DATA(convertedResponse));
+        yield put(SET_MODAL_TYPE(true));
+
+        yield put(SET_API_STATUS({ type: 'detail', code: HTTP_STATUS_CODE.OK }));
+    } catch (error) {
+        console.error(error);
+        yield put(SET_API_STATUS({ type: 'detail', code: error }));
+    } finally {
+        yield put(SET_LOADING_STATE(false));
+    }
+}
+
 function* MainSaga() {
     yield takeEvery(FETCH_SEARCH, fetchSearchUsers);
     yield takeEvery(FETCH_GET_OPTIONS, fetchGetOptions);
+    yield takeEvery(FETCH_GET_DETAIL, fetchGetDetail);
 }
 
 export { MainSaga };
