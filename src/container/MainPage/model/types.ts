@@ -5,10 +5,26 @@ export interface SearchFormField {
 }
 
 export interface SearchResultData {
+    trainDate: string;
     trainNumber: string;
     departureTime: string;
     arrivalTime: string;
     travelTime: string;
+}
+
+export interface ParentModalData {
+    trainDate: string;
+    trainNumber: string;
+    direction: string;
+    startStation: string;
+    endStation: string;
+    trainStop: Array<TrainStop>;
+}
+
+export interface TrainStop {
+    sequence: string;
+    arrivalTime: string;
+    stationName: string;
 }
 
 export interface ApiStatus {
@@ -26,8 +42,11 @@ export interface Options {
 
 export interface State {
     searchFormField: SearchFormField;
-    loadingState: boolean;
     searchResult: Array<SearchResultData>;
+    parentModalData: ParentModalData;
+    trainItem: SearchResultData;
     apiStatus: ApiStatus;
+    modalType: boolean;
+    loadingState: boolean;
     options: Array<Options>;
 }

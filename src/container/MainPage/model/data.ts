@@ -1,10 +1,27 @@
 import { getMaxDay } from '@utils/dateUtil';
-import { ApiStatus, SearchFormField, State } from './types';
+import { ApiStatus, SearchFormField, SearchResultData, State } from './types';
 
 export const searchFormField: SearchFormField = {
     startStationId: '',
     endStationId: '',
     trainDate: ''
+};
+
+export const parentModalData = {
+    trainDate: '',
+    trainNumber: '',
+    direction: '',
+    startStation: '',
+    endStation: '',
+    trainStop: []
+};
+
+export const searchResultData: SearchResultData = {
+    trainDate: '',
+    trainNumber: '',
+    departureTime: '',
+    arrivalTime: '',
+    travelTime: ''
 };
 
 export const initStatus: ApiStatus = {
@@ -18,7 +35,10 @@ export const initStatus: ApiStatus = {
 export const initialState: State = {
     searchFormField,
     searchResult: [],
+    parentModalData,
+    trainItem: searchResultData,
     apiStatus: initStatus,
+    modalType: false,
     loadingState: false,
     options: []
 };

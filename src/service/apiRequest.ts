@@ -34,4 +34,15 @@ export default class ApiRequest {
             method: HTTP_METHOD.GET
         });
     }
+
+    /**
+     * 取得指定[日期],[車次]的時刻表資料
+     */
+    static getTrainNumberDetail(data: any) {
+        const { TrainNo, TrainDate } = data;
+        return httpRequest({
+            url: `${API_GATEWAY_PREFIX}${API_PREFIX}/${SERVICE_URL_CONFIG.DailyTimetable}/${SERVICE_URL_CONFIG.TrainNo}/${TrainNo}/${SERVICE_URL_CONFIG.TrainDate}/${TrainDate}`,
+            method: HTTP_METHOD.GET
+        });
+    }
 }

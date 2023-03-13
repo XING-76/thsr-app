@@ -41,5 +41,6 @@ export const SERVICE_URL_CONFIG = {
     to: 'to',
     DailyTrainInfo: 'DailyTrainInfo',
     TrainDate: 'TrainDate',
+    TrainNo: 'TrainNo',
     Station: 'Station'
 };
