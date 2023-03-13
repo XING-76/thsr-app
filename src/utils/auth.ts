@@ -39,6 +39,7 @@ export const authHeader = () => {
 export const removeToken = () => {
     try {
         localStorage.removeItem('token');
+        localStorage.removeItem('tokenTime');
     } catch (err) {
         console.error(err);
     }
