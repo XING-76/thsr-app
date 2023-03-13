@@ -1,11 +1,17 @@
+import ErrorBoundary from '@modules/ErrorBoundary';
 import SearchForm from './components/SearchForm';
 import SearchResultTable from './components/SearchResultTable';
 
 function Index() {
     return (
         <>
-            <SearchForm />
-            <SearchResultTable />
+            <ErrorBoundary>
+                <SearchForm />
+            </ErrorBoundary>
+
+            <ErrorBoundary>
+                <SearchResultTable />
+            </ErrorBoundary>
         </>
     );
 }
