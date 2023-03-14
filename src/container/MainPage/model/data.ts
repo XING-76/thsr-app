@@ -49,8 +49,8 @@ export const dateRestrict = {
 };
 
 export const tableTitle = [
-    { id: 'title01', title: '車次' },
-    { id: 'title02', title: '出發' },
-    { id: 'title03', title: '到達' },
-    { id: 'title04', title: '總時間' }
+    { id: '0001', title: '車次' },
+    { id: '0002', title: '出發' },
+    { id: '0003', title: '到達' },
+    { id: '0004', title: '總時間' }
 ];
