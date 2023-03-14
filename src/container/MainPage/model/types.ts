@@ -22,6 +22,7 @@ export interface ParentModalData {
 }
 
 export interface TrainStop {
+    id: string;
     sequence: string;
     arrivalTime: string;
     stationName: string;

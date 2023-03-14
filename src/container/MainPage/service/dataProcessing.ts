@@ -94,12 +94,14 @@ export const convertResponseOfGetDetailAPI = (response: any) => {
 
     const newData = StopTimes?.map((item: any) => {
         const {
+            StationID,
             StopSequence,
             StationName: { Zh_tw },
             ArrivalTime
         } = item;
 
         const result = {
+            id: StationID,
             sequence: StopSequence,
             arrivalTime: ArrivalTime,
             stationName: Zh_tw
