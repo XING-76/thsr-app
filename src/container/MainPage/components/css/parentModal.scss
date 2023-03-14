@@ -37,8 +37,23 @@
 }
 
 .parentModal__timeField {
-    display: flex;
-    margin-bottom: 1.5rem;
+    .parentModal__timeField_row {
+        display: flex;
+        padding: 0.3rem 0;
+
+        .parentModal__timeField_item {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    }
+
+    .title {
+        background: #eeeeee;
+        color: #666666;
+
+        border-top: 3px solid #bebebe;
+    }
 }
 
 .parentModal__field {
@@ -68,11 +83,14 @@
                 display: inline-block;
                 width: 10px;
                 height: 10px;
-                border-radius: 50%;
                 background-color: #858585;
                 position: relative;
                 z-index: 2;
                 margin: 1rem 0;
+            }
+
+            .active {
+                background-color: #ca4f0f;
             }
 
             &:first-child:before {
@@ -92,6 +110,35 @@
                 right: 0px;
                 top: 50%;
                 margin-top: -5px;
+            }
+        }
+
+        .active {
+            &:first-child:after {
+                left: 50%;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                height: 3px;
+                background-color: #ca4f0f;
+                left: 0px;
+                right: 0px;
+                top: 50%;
+                margin-top: -5px;
+            }
+        }
+
+        .first {
+            &:after {
+                left: 50%;
+            }
+        }
+
+        .last {
+            &:after {
+                right: 50%;
             }
         }
     }
