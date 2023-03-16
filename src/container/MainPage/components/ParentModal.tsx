@@ -20,6 +20,7 @@ function ParentModal() {
         const start = Number(startStationId);
         const end = Number(endStationId);
         const station = Number(stationId);
+        //TODO 北上南下排序會相反
         return station < end && station > start;
     };
 
@@ -67,9 +68,11 @@ function ParentModal() {
             <div className="parentModal__field">
                 <ul className="parentModal__field_container">
                     {trainStop?.map((item) => (
-                        <li key={item.id} className={`parentModal__field_item ${handleRangeStyleType(item.id)}`}>
+                        // <li key={item.id} className={`parentModal__field_item ${handleRangeStyleType(item.id)}`}>
+                        <li key={item.id} className={`parentModal__field_item`}>
                             <div>{item.stationName}</div>
-                            <span className={`dot ${handleRangeStyleType(item.id, 'dot')}`} />
+                            {/* <span className={`dot ${handleRangeStyleType(item.id, 'dot')}`} /> */}
+                            <span className={`dot`} />
                             <p>{item.arrivalTime}</p>
                         </li>
                     ))}
