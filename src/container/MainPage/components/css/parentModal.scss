@@ -1,11 +1,13 @@
+@import '@assets/css/variables';
+
 .parentModal__title {
     display: flex;
     margin-bottom: 0.5rem;
 
     .parentModal__title_from,
     .parentModal__title_to {
-        color: #333;
-        font-size: 1.8rem;
+        color: map-get($color, 'global', 'text-darkGray');
+        @include font-size(map-get($fontSize, 'large'));
         padding: 0 10px;
         line-height: 1;
     }
@@ -16,10 +18,10 @@
         span {
             display: inline-block;
             position: relative;
-            background-color: #ca4f0f;
-            color: #fff;
+            background-color: map-get($color, 'modal', 'background-orange');
+            color: map-get($color, 'global', 'text-white');
             padding: 0 8px;
-            font-size: 0.8rem;
+            @include font-size(map-get($fontSize, 'min-small'));
             border-top-right-radius: 8px;
 
             &:after {
@@ -28,7 +30,7 @@
                 width: 0;
                 height: 0;
                 border-right: 18px solid transparent;
-                border-bottom: 26px solid #ca4f0f;
+                border-bottom: 26px solid map-get($color, 'modal', 'background-orange');
                 right: -10px;
                 bottom: 0;
             }
@@ -44,21 +46,21 @@
         .parentModal__timeField_item {
             flex-grow: 1;
             text-align: center;
-            font-size: 0.9rem;
+            @include font-size(map-get($fontSize, 'small'));
         }
     }
 
     .title {
-        background: #eeeeee;
-        color: #666666;
+        background: map-get($color, 'modal', 'background-lightGray');
+        color: map-get($color, 'modal', 'text-gray');
 
-        border-top: 3px solid #bebebe;
+        border-top: 3px solid map-get($color, 'modal', 'border');
     }
 }
 
 .parentModal__field {
-    background: #f7f7f7;
-    color: #666666;
+    background: map-get($color, 'modal', 'background-darkWhite');
+    color: map-get($color, 'modal', 'text-gray');
     max-width: 300px;
 
     .parentModal__field_container {
@@ -76,21 +78,21 @@
             position: relative;
             z-index: 2;
             flex: 1 1 auto;
-            font-size: 1rem;
+            @include font-size(map-get($fontSize, 'normal'));
             padding: 10px;
 
             .dot {
                 display: inline-block;
                 width: 10px;
                 height: 10px;
-                background-color: #858585;
+                background-color: map-get($color, 'modal', 'background-dot');
                 position: relative;
                 z-index: 2;
                 margin: 1rem 0;
             }
 
             .active {
-                background-color: #ca4f0f;
+                background-color: map-get($color, 'modal', 'background-orange');
             }
 
             &:first-child:before {
@@ -105,7 +107,7 @@
                 content: '';
                 position: absolute;
                 height: 3px;
-                background-color: #e7e7e7;
+                background-color: map-get($color, 'modal', 'background-gray');
                 left: 0px;
                 right: 0px;
                 top: 50%;
@@ -122,7 +124,7 @@
                 content: '';
                 position: absolute;
                 height: 3px;
-                background-color: #ca4f0f;
+                background-color: map-get($color, 'modal', 'background-orange');
                 left: 0px;
                 right: 0px;
                 top: 50%;

@@ -1,5 +1,7 @@
+@import '@assets/css/variables';
+
 .modal__backdrop {
-    background: transparent;
+    background: map-get($color, 'modal', 'background-transparent');
     position: fixed;
     top: 0;
     left: 0;
@@ -11,9 +13,9 @@
     align-items: center;
 
     .modal__wrapper {
-        background-color: #ffffff;
+        background-color: map-get($color, 'modal', 'background-white');
         border-radius: 5px;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        box-shadow: map-get($color, 'shadow', 'form');
         min-width: 20%;
         max-width: 85%;
         min-height: 120px;
