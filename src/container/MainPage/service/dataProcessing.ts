@@ -113,7 +113,7 @@ export const convertResponseOfGetDetailAPI = (response: any) => {
     const convertedData = {
         trainDate: TrainDate,
         trainNumber: TrainNo,
-        direction: Direction ? '北上' : '南下',
+        direction: Direction,
         startStation,
         endStation,
         trainStop: newData

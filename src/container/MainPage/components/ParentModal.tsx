@@ -10,7 +10,7 @@ function ParentModal() {
     const dispatch = useDispatch();
     const {
         modalType,
-        parentModalData: { trainStop },
+        parentModalData: { direction, trainStop },
         searchFormField: { startStationId, endStationId },
         trainItem: { trainNumber, departureTime, arrivalTime, travelTime },
         options
@@ -20,8 +20,11 @@ function ParentModal() {
         const start = Number(startStationId);
         const end = Number(endStationId);
         const station = Number(stationId);
-        //TODO 北上南下排序會相反
-        return station < end && station > start;
+
+        const south = station < end && station > start;
+        const north = station > end && station < start;
+
+        return direction ? north : south;
     };
 
     const handleRangeStyleType = (stationId: string, type?: string) => {
@@ -68,11 +71,9 @@ function ParentModal() {
             <div className="parentModal__field">
                 <ul className="parentModal__field_container">
                     {trainStop?.map((item) => (
-                        // <li key={item.id} className={`parentModal__field_item ${handleRangeStyleType(item.id)}`}>
-                        <li key={item.id} className={`parentModal__field_item`}>
+                        <li key={item.id} className={`parentModal__field_item ${handleRangeStyleType(item.id)}`}>
                             <div>{item.stationName}</div>
-                            {/* <span className={`dot ${handleRangeStyleType(item.id, 'dot')}`} /> */}
-                            <span className={`dot`} />
+                            <span className={`dot ${handleRangeStyleType(item.id, 'dot')}`} />
                             <p>{item.arrivalTime}</p>
                         </li>
                     ))}
