@@ -1,0 +1,63 @@
+$orange: (
+    'O1': #ca4f0f,
+    'O2': #f5a552
+);
+
+$gray: (
+    'G0': transparent,
+    'G1': #ffffff,
+    'G2': #f7f7f7,
+    'G3': #eeeeee,
+    'G4': #e7e7e7,
+    'G5': #dddddd,
+    'G6': #bebebe,
+    'G7': #aaaaaa,
+    'G8': #858585,
+    'G9': #666666,
+    'G10': #333333
+);
+
+$color: (
+    'global': (
+        'primary': map-get($orange, 'O1'),
+        'primary-hover': map-get($orange, 'O2'),
+        'background': map-get($gray, 'G1'),
+        'text-white': map-get($gray, 'G1'),
+        'text-gray': map-get($gray, 'G6'),
+        'text-darkGray': map-get($gray, 'G10')
+    ),
+
+    'modal': (
+        'background-transparent': map-get($gray, 'G0'),
+        'background-white': map-get($gray, 'G1'),
+        'background-darkWhite': map-get($gray, 'G2'),
+        'background-orange': map-get($orange, 'O1'),
+        'background-lightGray': map-get($gray, 'G3'),
+        'background-gray': map-get($gray, 'G4'),
+        'background-dot': map-get($gray, 'G8'),
+        'text-gray': map-get($gray, 'G9'),
+        'border': map-get($gray, 'G6')
+    ),
+
+    'input': (
+        'background-orange': map-get($orange, 'O1'),
+        'border': map-get($gray, 'G7')
+    ),
+
+    'table': (
+        'background-gray': map-get($gray, 'G3'),
+        'border': map-get($gray, 'G5')
+    ),
+
+    'button': (
+        'primary': map-get($orange, 'O1'),
+        'primary-hover': map-get($orange, 'O2'),
+        'secondary': map-get($gray, 'G3'),
+        'white': map-get($gray, 'G1'),
+        'gray': map-get($gray, 'G9')
+    ),
+
+    'shadow': (
+        'form': rgba(99, 99, 99, 0.2) 0px 2px 8px 0px
+    )
+);

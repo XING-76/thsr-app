@@ -1,0 +1,16 @@
+@mixin font-size($sizeValue) {
+    font-size: $sizeValue + rem;
+}
+
+// rem
+$fontSize: (
+    max-large: 2,
+    extra-large: 1.75,
+    medium-large: 1.625,
+    large: 1.5,
+    medium: 1.2,
+    normal: 1,
+    small: 0.9,
+    min-small: 0.8,
+    custom: var(--custom-fontSize)
+);
