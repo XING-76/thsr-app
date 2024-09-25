@@ -1,12 +1,12 @@
 # thsr-app
 
--   專案使用[TDX 運輸資料流通服務平臺](https://tdx.transportdata.tw/api-service/swagger)提供的服務
+-   This project utilizes services provided by [Transport Data eXchange](https://tdx.transportdata.tw/api-service/swagger).
 
-## 簡介
+## Introduction
 
--   高鐵班次時刻表快速查詢
+-   A quick search for Taiwan High-Speed Rail (THSR) schedules.
 
-## 使用技術
+## Tech Stack
 
 -   React Hooks
 -   TypeScript
@@ -17,11 +17,8 @@
 -   ESlint
 -   Scss
 -   Vite
-
-## Other-Plugin
-
 -   [react-window](https://github.com/bvaughn/react-window)
 
-## 聲明
+## Declaration
 
-本專案內圖片、內容等，純屬個人使用，不做任何商業用途
+All images and text content within this project are for personal use only and not for commercial purposes.
